@@ -1,0 +1,9 @@
+server:
+  port: 9999
+
+testMail:
+  host: localhost
+  port: 8989
+  smtp:
+   auth: true
+   isSslEnabled: true
