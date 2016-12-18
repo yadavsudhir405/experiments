@@ -17,7 +17,6 @@ public class ApplicationIntegrationTest {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
-
 	@Test
 	public void testProprtryFile() {
 
