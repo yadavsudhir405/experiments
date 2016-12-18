@@ -14,7 +14,7 @@ public class VehicleIdentificationNumber {
 
     public VehicleIdentificationNumber(String vin) {
         Assert.notNull(vin, "VIN must not be null");
-        Assert.isTrue(vin.length() == 17, "VIN must be exactly 17 characters");
+        Assert.isTrue(vin.length() == 5, "VIN must be exactly 5 characters");
         this.vin = vin;
     }
 

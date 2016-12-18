@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "vehicle.service")
 public class RemoteVehicleDetailsServiceProperties {
 
-    private String rootUrl = "http://localhost:8081/vs/";
+    private String rootUrl = "http://localhost:8085/";
 
     public String getRootUrl() {
         return this.rootUrl;

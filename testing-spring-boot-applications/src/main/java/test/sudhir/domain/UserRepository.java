@@ -1,6 +1,7 @@
 package test.sudhir.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author sudhir
@@ -8,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *         Time:4:04 PM
  *         Project:testing-spring-boot-applications
  */
+@Repository
 public interface UserRepository extends JpaRepository<User,Long> {
 
     User findByUsername(String username);

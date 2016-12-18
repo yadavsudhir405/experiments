@@ -2,10 +2,7 @@ package test.sudhir.domain;
 
 import org.springframework.util.Assert;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author sudhir
@@ -13,11 +10,11 @@ import javax.persistence.Id;
  *         Time:4:01 PM
  *         Project:testing-spring-boot-applications
  */
-@Entity
+@Entity(name = "VehicleUser")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
@@ -25,7 +22,7 @@ public class User {
 
     private VehicleIdentificationNumber vin;
 
-    protected User() {
+    public User() {
     }
 
     public User(String username, VehicleIdentificationNumber vin) {
@@ -46,5 +43,26 @@ public class User {
 
     public VehicleIdentificationNumber getVin() {
         return this.vin;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (id != null ? !id.equals(user.id) : user.id != null) return false;
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        return vin != null ? vin.equals(user.vin) : user.vin == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (vin != null ? vin.hashCode() : 0);
+        return result;
     }
 }

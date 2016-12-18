@@ -2,16 +2,12 @@ package test.sudhir;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-
 
 @SpringBootApplication
-public class TestingSpringBootApplication {
-
-
-
+public class VehicleRegisterationServiceApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext applicationContext=SpringApplication.run(TestingSpringBootApplication.class, args);
+		SpringApplication.run(VehicleRegisterationServiceApplication.class, args);
 	}
+
 }

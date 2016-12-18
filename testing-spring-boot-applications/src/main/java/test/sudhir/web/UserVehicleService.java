@@ -37,5 +37,6 @@ public class UserVehicleService {
             throw new UserNameNotFoundException(username);
         }
         return this.vehicleDetailsService.getVehicleDetails(user.getVin());
+
     }
 }

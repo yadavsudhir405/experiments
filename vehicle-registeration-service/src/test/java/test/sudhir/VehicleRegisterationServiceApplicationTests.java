@@ -7,16 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestingSpringBootApplicationTests {
-
-
+public class VehicleRegisterationServiceApplicationTests {
 
 	@Test
-	public void testProprtryFile() {
-		//assertThat(mailServerConfiguration.getHost().equals("localhost"));
-		//assert(mailServerConfiguration.getHost().equals("localhost1"));
-		
-
+	public void contextLoads() {
 	}
 
 }
