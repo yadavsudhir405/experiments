@@ -12,9 +12,9 @@ import org.springframework.util.Assert;
  */
 public class VehicleDetails {
 
-    private final String make;
+    private  String make;
 
-    private final String model;
+    private  String model;
 
     @JsonCreator
     public VehicleDetails(@JsonProperty("make") String make,
@@ -23,6 +23,9 @@ public class VehicleDetails {
         Assert.notNull(model, "Model must not be null");
         this.make = make;
         this.model = model;
+    }
+
+    public VehicleDetails() {
     }
 
     public String getMake() {
