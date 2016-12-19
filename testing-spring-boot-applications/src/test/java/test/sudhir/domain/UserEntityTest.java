@@ -34,7 +34,12 @@ public class UserEntityTest {
         expectedException.expectMessage("Username must not be empty");
         new User(null,VIN);
     }
-
+    @Test
+    public void createUserWhenVINisnullShouldThrowException() throws Exception{
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("VIN must not be null");
+        new User("",null);
+    }
     @Test
     public void saveShouldPersist(){
         User user= this.testEntityManager.persistFlushFind(new User("Sudhir",VIN));
