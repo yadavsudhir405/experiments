@@ -9,8 +9,6 @@ import org.springframework.context.ApplicationContext;
 public class TestingSpringBootApplication {
 
 
-
-
 	public static void main(String[] args) {
 		ApplicationContext applicationContext=SpringApplication.run(TestingSpringBootApplication.class, args);
 	}
