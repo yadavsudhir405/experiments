@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UserEntityTest {
+public class UserEntityTestSuite {
 
     private static final VehicleIdentificationNumber VIN=new VehicleIdentificationNumber("12345");
 
@@ -38,7 +38,7 @@ public class UserEntityTest {
     public void createUserWhenVINisnullShouldThrowException() throws Exception{
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("VIN must not be null");
-        new User("",null);
+        new User("asd",null);
     }
     @Test
     public void saveShouldPersist(){

@@ -1,0 +1,19 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is Sample of Testing Spring Boot Application",
+    "version" : "v1",
+    "title" : "Testing Spring Boot Application",
+    "termsOfService" : "http://www.github.com/kongchen/swagger-maven-plugin",
+    "contact" : {
+      "name" : "Sudhir Yadav",
+      "email" : "yadavsudhir405@gmail.com"
+    }
+  },
+  "host" : "localhost:9999",
+  "tags" : [ {
+    "name" : "UserVehicleService",
+    "description" : "This is user Vehicle service"
+  } ],
+  "schemes" : [ "http" ]
+}

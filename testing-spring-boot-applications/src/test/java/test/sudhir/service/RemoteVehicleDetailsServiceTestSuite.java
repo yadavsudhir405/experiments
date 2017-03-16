@@ -27,7 +27,7 @@ import test.sudhir.domain.VehicleIdentificationNumber;
 @RunWith(SpringRunner.class)
 @RestClientTest({RemoteVehicleDetailsService.class,RemoteVehicleDetailsServiceProperties.class})
 @TestPropertySource(properties = "vehicle.service.root-url=http://example.com/")
-public class RemoteVehicleDetailsServiceTest {
+public class RemoteVehicleDetailsServiceTestSuite {
 
     private static final String VIN="12345";
 

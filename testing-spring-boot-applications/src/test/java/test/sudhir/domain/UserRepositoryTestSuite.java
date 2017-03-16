@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UserRepositoryTest {
+public class UserRepositoryTestSuite {
 
     private  static final VehicleIdentificationNumber VEHICLE_IDENTIFICATION_NUMBER=
             new VehicleIdentificationNumber("12345");

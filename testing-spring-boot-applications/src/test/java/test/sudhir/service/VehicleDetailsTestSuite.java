@@ -18,7 +18,7 @@ import java.io.IOException;
  */
 @RunWith(SpringRunner.class)
 @JsonTest
-public class VehicleDetailsTest {
+public class VehicleDetailsTestSuite {
 
     @Autowired
     private JacksonTester<VehicleDetails> jacksonTester;

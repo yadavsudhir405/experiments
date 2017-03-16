@@ -11,7 +11,7 @@ import org.junit.rules.ExpectedException;
  *         Time:5:10 PM
  *         Project:testing-spring-boot-applications
  */
-public class VehicleIdentificationNumberTest {
+public class VehicleIdentificationNumberTestSuite {
 
     private static final String VIN="12345";
 
