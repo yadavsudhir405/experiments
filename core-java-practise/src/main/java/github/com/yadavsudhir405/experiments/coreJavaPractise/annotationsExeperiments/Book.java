@@ -1,4 +1,4 @@
-package code.sudhir.annotationsExeperiments;
+package github.com.yadavsudhir405.experiments.coreJavaPractise.annotationsExeperiments;
 
 import java.lang.annotation.Annotation;
 

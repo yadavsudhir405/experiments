@@ -1,17 +1,17 @@
-package code.sudhir.annotationsExeperiments;
+package github.com.yadavsudhir405.experiments.coreJavaPractise.annotationsExeperiments;
 
 import java.lang.annotation.*;
 
 /**
  * @author sudhir
  *         Date:1/12/16
- *         Time:8:05 AM
+ *         Time:8:04 AM
  *         Project:core-java-practise
  */
 @Documented
 @Inherited
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Port {
-    public int port() default 8080;
+public @interface Host {
+    public String host() default "localhost";
 }

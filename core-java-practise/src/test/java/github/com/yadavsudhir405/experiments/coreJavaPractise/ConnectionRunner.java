@@ -1,6 +1,6 @@
-package code.sudhir;
+package github.com.yadavsudhir405.experiments.coreJavaPractise;
 
-import code.sudhir.annotationsExeperiments.Connection;
+import github.com.yadavsudhir405.experiments.coreJavaPractise.annotationsExeperiments.Connection;
 
 /**
  * @author sudhir
