@@ -15,7 +15,8 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String address;
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    private Address address;
 
     public Person(){
 
@@ -28,9 +29,10 @@ public class Person {
         return name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
+
 
     @Override
     public boolean equals(Object o) {

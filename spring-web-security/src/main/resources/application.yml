@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: spring-web-security
+  jpa:
+    database: postgresql
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+  data:
+    rest:
+      base-path: /entity
+      return-body-on-create: true
+      return-body-on-update: true
+  datasource:
+    url: jdbc:postgresql://172.25.2.26:5432/spring-web-security
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+server:
+  port: 9999
+security:
+  basic:
+    enabled: false

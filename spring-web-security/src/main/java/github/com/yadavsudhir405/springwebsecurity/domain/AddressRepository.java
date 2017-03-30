@@ -5,10 +5,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
  * @author sudhir
- *         Date:15/3/17
- *         Time:11:33 AM
+ *         Date:23/3/17
+ *         Time:11:04 PM
  *         Project:spring-web-security
  */
-@RepositoryRestResource
-public interface PersonRepository extends JpaRepository<Person,Long> {
+@RepositoryRestResource()
+public interface AddressRepository extends JpaRepository<Address,Long> {
 }
