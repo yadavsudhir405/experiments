@@ -27,10 +27,23 @@ public class FirstNonRepeatedCharacter {
         /*StringBuilder stringBuilder=new StringBuilder("madam");
         StringBuilder reversedString= stringBuilder.reverse();
         System.out.println(stringBuilder.equals(reversedString));*/
-        String str="I stay in bangalore";
+
+
+       /* String str="I stay in bangalore";
         String expectedString="bangalore in stay I";
         String reversedString=reverseSentence(str);
-        System.out.println(reversedString);
+        System.out.println(reversedString);*/
+
+
+       /* String str="Hello";
+        String str1=new String("Hello");
+        System.out.println(str==str1);
+        str1=str1.intern();
+        System.out.println(str==str1);*/
+
+
+
+
     }
     private static String reverseSentence(String str){
         String[] strs=str.split(" ");
