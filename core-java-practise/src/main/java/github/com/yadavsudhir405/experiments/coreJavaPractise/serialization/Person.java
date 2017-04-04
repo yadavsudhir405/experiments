@@ -1,5 +1,7 @@
 package github.com.yadavsudhir405.experiments.coreJavaPractise.serialization;
 
+import github.com.yadavsudhir405.experiments.coreJavaPractise.generals.Point;
+
 import java.io.Serializable;
 
 /**
@@ -16,6 +18,10 @@ public class Person implements Serializable{
         this.name=name;
         this.age=age;
         this.address=address;
+    }
+    public void show(){
+        Point p=new Point(10,20);
+
     }
     @Override
     public String toString(){
