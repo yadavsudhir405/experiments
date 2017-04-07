@@ -11,8 +11,9 @@ import java.util.*;
 public class TreeMapRunner {
 
     public static void main(String[] args) {
+        testTreeMapConstructor();
         //testMapExperiments();
-        equalsAndCompareMethodConsistency();
+       // equalsAndCompareMethodConsistency();
     }
 
 
@@ -84,6 +85,59 @@ public class TreeMapRunner {
             });
             displayListContaingMapEntries(entriesList);
 
+
+        }
+    }
+    private static void testTreeMapConstructor(){
+        TreeMap<Address,Integer> treeMap=new TreeMap<>();
+        Address address1=new Address("Bangalore",100);
+        Address address2=new Address("Delhi",200);
+        Address address3=new Address("Mumbai",300);
+        System.out.println("Should Throw classcast Exception");
+        try{
+            treeMap.put(address1,100);
+
+        }catch (ClassCastException e){
+            e.printStackTrace();
+        }
+        System.out.println("************************\n\n\n");
+
+        Map<Address,Integer> hashMap=new HashMap<>();
+        hashMap.put(address1,100);
+        try{
+            System.out.println("Should Throw ClassCast Exception");
+            TreeMap<Address,Integer> treeMap1=new TreeMap<>(hashMap);
+        }catch (ClassCastException e){
+            e.printStackTrace();
+        }
+
+    }
+    private static class Address{
+        private String city;
+        private int cityCode;
+
+        public Address(String city, int cityCode) {
+            this.city = city;
+            this.cityCode = cityCode;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Address address = (Address) o;
+
+            if (cityCode != address.cityCode) return false;
+            return city != null ? city.equals(address.city) : address.city == null;
+
+        }
+
+        @Override
+        public int hashCode() {
+            int result = city != null ? city.hashCode() : 0;
+            result = 31 * result + cityCode;
+            return result;
         }
     }
     private static <E>  void displayListContaingMapEntries(List<E> list){
