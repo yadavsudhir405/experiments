@@ -14,18 +14,18 @@ public class printingOddEvenWithCondition {
 
     private static final Lock lock=new ReentrantLock();
     public static void main(String[] args) {
-        ReentrantLock lock1=(ReentrantLock) lock;
+       /* ReentrantLock lock1=(ReentrantLock) lock;
         System.out.println(lock1.getHoldCount());
         lock1.lock();
         System.out.println(lock1.getHoldCount());
 
         lock1.lock();
-        System.out.println(lock1.getHoldCount());
-        /*Displayer displayer=new Displayer();
+        System.out.println(lock1.getHoldCount());*/
+        Displayer displayer=new Displayer();
         Thread thread1=new Thread(new EvenNumberProducer(displayer),"EvenProducer");
         Thread thread2=new Thread(new OddNumberProducer(displayer),"OddProducer");
         thread1.start();
-        thread2.start();*/
+        thread2.start();
     }
     private static class OddNumberProducer implements Runnable{
 
