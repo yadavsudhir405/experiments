@@ -15,7 +15,7 @@ public class PalindromeUtilTest {
 
     @Test
     public void whenStringIsPallindromeShouldReturnTrue(){
-        String str="MADAMa";
+        String str="MADAM";
         boolean actual=PalindromeUtil.isPalindrome(str);
         Assert.assertTrue("expected true but got false",actual);
     }

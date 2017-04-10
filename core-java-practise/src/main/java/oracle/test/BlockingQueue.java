@@ -48,7 +48,7 @@ public class BlockingQueue<E> {
         synchronized (queue){
             try{
                 return queue.add(e);
-            }catch (IllegalArgumentException e1){
+            }catch (IllegalStateException e1){
                 return false;
             }
         }
