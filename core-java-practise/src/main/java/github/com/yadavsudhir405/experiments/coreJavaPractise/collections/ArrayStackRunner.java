@@ -9,6 +9,12 @@ package github.com.yadavsudhir405.experiments.coreJavaPractise.collections;
 public class ArrayStackRunner {
 
     public static void main(String[] args) {
+
+        int i=1;
+        int j=5;
+        System.out.println(17 & 15);
+
+
         ArrayStack<Integer> arrayStack=new ArrayStack<>(5);
         arrayStack.push(10);
         arrayStack.push(20);
