@@ -2,10 +2,7 @@ package github.com.yadavsudhir405.experiments.coreJavaPractise.concurrency;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.RecursiveAction;
-import java.util.concurrent.RecursiveTask;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.*;
 
 /**
  * @author sudhir
@@ -16,11 +13,25 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ForkJoinTaskRunner {
     public static void main(String[] args) {
             //startInitializingArrayWithRandomNumber();
-
+            findMaxPosition();
     }
 
-    private static void startInitializingArrayWithRandomNumber() {
+    private static void findMaxPosition() {
         int[] data=new int[100];
+        startInitializingArrayWithRandomNumber(data);
+        try {
+            TimeUnit.SECONDS.sleep(20);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ForkJoinPool forkJoinPool=new ForkJoinPool();
+        FindMaxPositionRecursiveTask findMaxPositionRecursiveTask=new FindMaxPositionRecursiveTask(data,0,99);
+        int result=forkJoinPool.invoke(findMaxPositionRecursiveTask);
+        System.out.println(data[result]);
+    }
+
+    private static void startInitializingArrayWithRandomNumber(int[] data) {
+
         ForkJoinPool forkJoinPool=new ForkJoinPool();
         RandomInitRecursiveActionTask randomInitRecursiveActionTask=new RandomInitRecursiveActionTask(data,0,99);
         forkJoinPool.invoke(randomInitRecursiveActionTask);
@@ -47,7 +58,7 @@ public class ForkJoinTaskRunner {
                 }
                 return position;
             }else{
-                int index=(endIndex-startIndex)/2+1;
+                int index=(endIndex-startIndex)/2+startIndex;
                 FindMaxPositionRecursiveTask firstHalfTask=new FindMaxPositionRecursiveTask(data,startIndex,index);
                 FindMaxPositionRecursiveTask secondHalfTask=new FindMaxPositionRecursiveTask(data,
                         index+1,endIndex);
