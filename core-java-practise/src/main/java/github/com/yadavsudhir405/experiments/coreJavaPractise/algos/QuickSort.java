@@ -13,12 +13,37 @@ import java.util.StringJoiner;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] array={70,10,90,100,50,60,20,120,40};
+        int[] array={60,50,10,70};
         System.out.println("Before Sorting::");
         displayArray(array);
         System.out.println("After Sorting::");
         quickSort(array,0,array.length-1);
         displayArray(array);
+        Character[] characters={'Z','A','D','B','C','G','F'};
+        System.out.println("Before Sorting Characters:::");
+        displayGenericArray(characters);
+        System.out.println("After Sorting Characters:::");
+        IArrays.sort(characters);
+        displayGenericArray(characters);
+
+        Person[] persons={new Person("Sudhir",60),new Person("Sudhir",50),new Person("Sudhir",10),new Person
+                ("Sudhir",70),new Person("Sudhir",100),new Person("Sudhir",5)};
+        IArrays.sort(persons,(a1,a2)->{
+            if(a1.age>a2.age){
+                return 1;
+            }else if(a1.age<a2.age){
+                return -1;
+            }else{
+                return 0;
+            }
+        });
+        displayGenericArray(persons);
+    }
+
+    private static <T> void displayGenericArray(T[] array){
+        StringJoiner stringJoiner=new StringJoiner(",");
+        Arrays.stream(array).forEach((value -> stringJoiner.add(value.toString())));
+        System.out.println(stringJoiner.toString());
     }
     private static void displayArray(int[] array){
         StringJoiner stringJoiner=new StringJoiner(",");
@@ -54,5 +79,21 @@ public class QuickSort {
         array[pivotIndex]=array[currentElementIndex];
         array[currentElementIndex]=temp;
     }
+    private static class Person{
+        private String name;
+        private int age;
 
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
+    }
 }
