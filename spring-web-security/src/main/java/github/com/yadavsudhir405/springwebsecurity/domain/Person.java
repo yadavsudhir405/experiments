@@ -23,6 +23,9 @@ public class Person {
     private Long id;
     private String name;
 
+    @Convert(converter = GenderConverter.class)
+    private Gender gender;
+
     @ManyToOne()
     //@JoinColumn(name = "address_id",foreignKey = @ForeignKey(name="ADDRESS_ID_FK") )
     @JoinTable(name="Person_Address_Mapping",joinColumns = @JoinColumn(name = "address_d"),inverseJoinColumns =
@@ -33,9 +36,12 @@ public class Person {
     protected Person(){
 
     }
-    public Person(@JsonProperty(value = "name") String name, @JsonProperty(value = "address")Address address){
+    public Person(@JsonProperty(value = "name") String name, @JsonProperty(value = "address")Address address,
+                  @JsonProperty(value = "gender") Gender
+            gender){
         this.name=name;
         this.address=address;
+        this.gender=gender;
     }
     public Long getId() {
         return id;
@@ -50,6 +56,9 @@ public class Person {
         return address;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -79,5 +88,17 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+    public static class GenderConverter implements AttributeConverter<Gender,Character>{
+
+        @Override
+        public Character convertToDatabaseColumn(Gender attribute) {
+            return attribute.getCode();
+        }
+
+        @Override
+        public Gender convertToEntityAttribute(Character dbData) {
+            return Gender.fromChar(dbData);
+        }
     }
 }
