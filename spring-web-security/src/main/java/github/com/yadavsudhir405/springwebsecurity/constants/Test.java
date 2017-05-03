@@ -1,6 +1,7 @@
 package github.com.yadavsudhir405.springwebsecurity.constants;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.io.IOException;
 
@@ -16,5 +17,8 @@ public class Test {
         String str=new ObjectMapper().writeValueAsString(days);
         System.out.println(str);
         Days days1=new ObjectMapper().readValue(str,Days.class);
+        SimpleModule simpleModule=new SimpleModule();
+        simpleModule.addSerializer(Days.class,new DaysSerializer());
+        simpleModule.addDeserializer(Days.class,new DaysDeserializer());
     }
 }
