@@ -1,5 +1,7 @@
 package github.com.yadavsudhir405.springwebsecurity.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 /**
@@ -9,14 +11,19 @@ import javax.persistence.*;
  *         Project:spring-web-security
  */
 @Entity
-@Table
+@Table(name = "address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String city,zipcode;
-    public Address(){
+    protected Address(){
 
+    }
+
+    public Address(@JsonProperty("city") String city,@JsonProperty("zipcode") String zipcode) {
+        this.city = city;
+        this.zipcode = zipcode;
     }
 
     public Long getId() {

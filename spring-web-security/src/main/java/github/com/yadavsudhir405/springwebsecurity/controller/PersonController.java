@@ -2,10 +2,9 @@ package github.com.yadavsudhir405.springwebsecurity.controller;
 
 import github.com.yadavsudhir405.springwebsecurity.domain.Person;
 import github.com.yadavsudhir405.springwebsecurity.domain.PersonRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author sudhir
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  *         Project:spring-web-security
  */
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/persons")
 public class PersonController {
 
     private final PersonRepository personRepository;
@@ -23,9 +22,18 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @PostMapping(path = "addperson")
+    @PostMapping()
     public Person addPerson(@RequestBody Person person){
         System.out.println("Inside Controller "+person);
         return personRepository.save(person);
+    }
+    @GetMapping
+    public List<Person> getAllPersons(){
+        return personRepository.findAll();
+    }
+
+    @DeleteMapping
+    public void delete(@RequestBody Person person){
+        personRepository.delete(person);
     }
 }

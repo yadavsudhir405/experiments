@@ -1,5 +1,11 @@
 package github.com.yadavsudhir405.springwebsecurity.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 /**
@@ -8,6 +14,7 @@ import javax.persistence.*;
  *         Time:11:22 AM
  *         Project:spring-web-security
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table
 public class Person {
@@ -15,11 +22,20 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+
+    @ManyToOne()
+    //@JoinColumn(name = "address_id",foreignKey = @ForeignKey(name="ADDRESS_ID_FK") )
+    @JoinTable(name="Person_Address_Mapping",joinColumns = @JoinColumn(name = "address_d"),inverseJoinColumns =
+    @JoinColumn(name = "person_id"))
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Address address;
 
-    public Person(){
+    protected Person(){
 
+    }
+    public Person(@JsonProperty(value = "name") String name, @JsonProperty(value = "address")Address address){
+        this.name=name;
+        this.address=address;
     }
     public Long getId() {
         return id;
@@ -28,7 +44,8 @@ public class Person {
     public String getName() {
         return name;
     }
-
+    //This property will be ignored if it's null
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Address getAddress() {
         return address;
     }
