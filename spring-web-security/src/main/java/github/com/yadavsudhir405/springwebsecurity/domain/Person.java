@@ -26,6 +26,9 @@ public class Person {
     @Convert(converter = GenderConverter.class)
     private Gender gender;
 
+    @Embedded
+    private DistanceTravelled distanceTravelled;
+
     @ManyToOne()
     //@JoinColumn(name = "address_id",foreignKey = @ForeignKey(name="ADDRESS_ID_FK") )
     @JoinTable(name="Person_Address_Mapping",joinColumns = @JoinColumn(name = "address_d"),inverseJoinColumns =
@@ -38,10 +41,11 @@ public class Person {
     }
     public Person(@JsonProperty(value = "name") String name, @JsonProperty(value = "address")Address address,
                   @JsonProperty(value = "gender") Gender
-            gender){
+            gender,@JsonProperty(value = "distancetravelled") DistanceTravelled distanceTravelled){
         this.name=name;
         this.address=address;
         this.gender=gender;
+        this.distanceTravelled=distanceTravelled;
     }
     public Long getId() {
         return id;
@@ -58,6 +62,10 @@ public class Person {
 
     public Gender getGender() {
         return gender;
+    }
+
+    public DistanceTravelled getDistanceTravelled() {
+        return distanceTravelled;
     }
 
     @Override
