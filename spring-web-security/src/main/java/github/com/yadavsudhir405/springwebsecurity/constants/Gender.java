@@ -1,4 +1,4 @@
-package github.com.yadavsudhir405.springwebsecurity.domain;
+package github.com.yadavsudhir405.springwebsecurity.constants;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

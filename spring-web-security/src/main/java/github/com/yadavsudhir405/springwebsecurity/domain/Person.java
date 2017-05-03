@@ -3,6 +3,7 @@ package github.com.yadavsudhir405.springwebsecurity.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import github.com.yadavsudhir405.springwebsecurity.constants.Gender;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
