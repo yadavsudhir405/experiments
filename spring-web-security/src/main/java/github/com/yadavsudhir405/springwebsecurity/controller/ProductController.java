@@ -22,8 +22,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public void save(@RequestBody Product product){
-
+    public Product save(@RequestBody Product product){
+        System.out.println("Inside Product controller");
+       return productRepository.save(product);
     }
     @GetMapping
     public List<Product> getAllProducts(){
