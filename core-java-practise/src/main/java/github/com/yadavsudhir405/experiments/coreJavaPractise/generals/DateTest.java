@@ -1,7 +1,6 @@
 package github.com.yadavsudhir405.experiments.coreJavaPractise.generals;
 
-import java.time.LocalDate;
-import java.time.Month;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -12,9 +11,34 @@ import java.time.format.DateTimeFormatter;
  */
 public class DateTest {
     public static void main(String[] args) {
-        testLocaleDate();
+        //testLocaleDate();
+        //testLocaleTime();
+        testLocaleDateTime();
     }
 
+    private static void testLocaleDateTime() {
+        Clock utcclock=Clock.systemUTC();
+        System.out.println(utcclock.getZone());
+        System.out.println(utcclock.instant());
+    }
+
+    private static void testLocaleTime(){
+        LocalTime now=LocalTime.now();
+        System.out.println("Now "+now);
+        LocalTime afterHalfAnHour=now.plusHours(1).plusMinutes(30);
+        System.out.println("After half an hour "+afterHalfAnHour);
+
+        LocalTime sixAmMorning=LocalTime.of(6,0,0);
+        System.out.println("Six Am Morning Time "+sixAmMorning);
+        LocalTime sixPmEvening=LocalTime.of(18,0,0);
+        System.out.println("Six Pm Evening "+sixPmEvening);
+        String time="06:00AM";
+        DateTimeFormatter timeFormatter=DateTimeFormatter.ofPattern("h:mma");
+        LocalTime sixAm=LocalTime.parse(time,timeFormatter);
+        System.out.println(sixAm);
+
+
+    }
     private static void testLocaleDate() {
         LocalDate today=LocalDate.now();
         System.out.println("Todays Date "+today);
