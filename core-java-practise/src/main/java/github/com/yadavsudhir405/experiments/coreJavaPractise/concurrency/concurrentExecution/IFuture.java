@@ -11,4 +11,5 @@ import java.util.concurrent.TimeUnit;
 public interface IFuture<V> {
     V get()throws InterruptedException;
     V get(long val, TimeUnit unit) throws InterruptedException;
+    V cancel(boolean mayInterrupting);
 }
