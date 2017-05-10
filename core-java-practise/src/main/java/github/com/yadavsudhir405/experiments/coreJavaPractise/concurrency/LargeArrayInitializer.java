@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
  *         Time:5:10 PM
  *         Project:core-java-practise
  */
-public class LargeArrayInitialization {
+public class LargeArrayInitializer {
 
     public int[] initializeArrayWithSize(int size){
         int[] array=new int[size];
@@ -52,9 +52,7 @@ public class LargeArrayInitialization {
 
         private void initializeArray(int[] array,int startIndex,int endIndex) throws InterruptedException {
             for(int i=startIndex;i<=endIndex;i++){
-                //TimeUnit.SECONDS.sleep(1);
-                //i= ThreadLocalRandom.current().nextInt();
-                array[i]= ThreadLocalRandom.current().nextInt();
+                array[i]= ThreadLocalRandom.current().nextInt(100);
             }
         }
     }
