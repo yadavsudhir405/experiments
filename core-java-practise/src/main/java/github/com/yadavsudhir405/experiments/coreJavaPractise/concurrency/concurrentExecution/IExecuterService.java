@@ -10,5 +10,6 @@ public interface IExecuterService extends IExecuter {
     void shutdown();
     void shutdownNow();
     void shutdownNow(boolean mayInterrupting);
+    <V> IFuture<V> submit(ICallable<V> task);
 
 }
