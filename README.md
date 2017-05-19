@@ -1,3 +1,3 @@
 # experiments
 
-It contains different experiments modules.
+It contains different submodules related to different experiments.
