@@ -7,9 +7,9 @@ package github.com.yadavsudhir405.experiments.coreJavaPractise.concurrency.concu
  *         Project:core-java-practise
  */
 public interface IExecuterService extends IExecuter {
+
     void shutdown();
     void shutdownNow();
     void shutdownNow(boolean mayInterrupting);
     <V> IFuture<V> submit(ICallable<V> task);
-
 }
